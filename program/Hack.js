@@ -13,7 +13,7 @@ class Hack {
         //画像描画
         let img = new Image();
 
-        img.src = './new_images/'+(passkind+1)+"/"+(turn+1+passturnnum*4)+".png";
+        img.src = './new_images/'+(passkind)+"/"+"auth_"+(turn+passturnnum*4)+".png";
         
         img.onload = function(){
             context.drawImage(img, 0, 0, imgsize*3, imgsize*3);}

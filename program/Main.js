@@ -15,7 +15,7 @@ function onClick(e) {
  		context.clearRect(0, 0, 1500, 1000);
         let x = e.offsetX;
         let y = e.offsetY;
-        let number = Math.floor(y / imgsize) * 3 + Math.floor(x / imgsize) + 1;
+        let number = Math.floor(y / imgsize) * 3 + Math.floor(x / imgsize);
 
         answer.push(number);
 
@@ -41,17 +41,17 @@ function onClick(e) {
 
 
  			context.clearRect(0, 0, 1500, 1000);
-			context.font = "128px sans-serif";
+			context.font = "64px sans-serif";
 
 			let sentences;
 
 			if (point == 4) {
 				context.fillStyle = "red";
-				sentences = ["認証成功"];
+				sentences = ["Authentication Succeess"];
 			}
 			else {
 				context.fillStyle = "blue";
-				sentences = ["認証失敗"];
+				sentences = ["Authentication Failure"];
 			}
 
 			console.log(point, answer, correct);
@@ -74,8 +74,6 @@ function next() {
  		
  		passkind = parseInt(password.value);
 		passturnnum = parseInt(passturn.value);
-
-		alert("認証を開始します。"+"種類 "+passkind+", セット "+passturnnum);
 
  		context.clearRect(0, 0, 1500, 1000);
  		document.getElementById('next').style.visibility = 'hidden';
@@ -107,13 +105,15 @@ let passturnnum;
 //実験用データ
 let data =[
 
-	["耳に髪がかかっていない人", [6, 2, 4, 7, 7, 2, 5, 5, 9, 9, 8, 8]],
+	["showing teeth", [0, 2, 7, 5, 4, 1, 4, 1, 4, 4, 3, 6]],
 
-	["モンゴロイドの女性", [2, 1, 5, 1, 9, 4, 2, 7, 3, 9, 5, 8]],
+	["forehead is hidden", [8, 7, 8, 1, 0, 5, 3, 6, 5, 4, 1, 7]],
 
-	["背景が緑", [2, 1, 9, 2, 2, 7, 2, 4, 1, 7, 6, 9]],
+	["green background", [0, 2, 6, 2, 5, 6, 6, 2, 1, 0, 3, 1]],
 
-	["幼い女の子", [3, 5, 5, 3, 4, 4, 9, 8, 2, 4, 4, 7]]
+	["short cut", [1, 6, 4, 6, 2, 6, 8, 6, 8, 0, 8, 5]],
+
+	["wearing a hat", [7, 3, 8, 4, 4, 2, 1, 7, 6, 3, 5, 7]]
 
 	];
 
@@ -143,7 +143,7 @@ function name_input() {
 		context.clearRect(0, 0, 1500, 1000);
 		context.font = "48px sans-serif";
 		let sentences = [
-			"番号を選択してください"]
+			"Choose the criteria"]
 
 		for (let i = 0; i < sentences.length; i++) {
 			context.fillText(sentences[i], 0, 48*i+48);
