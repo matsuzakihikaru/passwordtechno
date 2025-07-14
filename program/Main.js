@@ -56,6 +56,21 @@ function onClick(e) {
 
 			console.log(point, answer, correct);
 
+			passkind = parseInt(password.value);
+			passturnnum = parseInt(passturn.value);
+
+		    var dt = [passkind, passturnnum, point, point == 4, answer, correct];
+		    var json_data = JSON.stringify(dt);
+
+			fetch("https://script.google.com/macros/s/AKfycbzV8L4LIZ_LTL1uYn3VVjU5Qr9j6IrY0-N5FDCgxJtwUZKQ8z5zLsZwbDFJwq9SRplG/exec" , {
+				method: "POST",
+				body: json_data,
+				mode: 'no-cors',
+				headers: {"Content-Type": "application/json"}
+			}).then((dat) => {
+		    	console.log(dat);
+		  	});;			
+
 
 			for (let i = 0; i < sentences.length; i++) {
 				context.fillText(sentences[i], 0, 128*i+128);
