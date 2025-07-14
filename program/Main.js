@@ -7,6 +7,19 @@ function onClick(e) {
 	//画面更新-1->0
  	if (screen == -1) {
  		name_input();
+
+ 		context.clearRect(0, 0, 1500, 1000);
+
+        context.font = "48px sans-serif";
+
+        //画像描画
+        let img = new Image();
+
+        img.src = "./new_images/example.png";
+        
+        img.onload = function(){
+            context.drawImage(img, 0, 0, imgsize*3, imgsize*3);}
+
  	}
 
 	//画面0->1 ... 4->5 ... 11->12 ->20
